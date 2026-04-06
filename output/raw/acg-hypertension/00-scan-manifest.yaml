@@ -1,0 +1,82 @@
+cpg_id: acg-hypertension
+cpg_name: "Hypertension – Tailoring the management plan to optimise blood pressure control"
+publisher: ACE (Agency for Care Effectiveness)
+country: SG
+version: "1.0"
+publication_date: "2023-12-15"
+total_pages: 12
+
+sections:
+  - id: introduction
+    title: "Introduction and Scope"
+    pages: [1]
+    content_types: [prose, sidebar]
+    notes: "Title page with objective, scope, target audience. Logos. No TOC."
+
+  - id: diagnosis-and-risk
+    title: "Diagnosis, Classification, and Cardiovascular Risk Assessment"
+    pages: [2]
+    content_types: [prose, table, sidebar, figure]
+    notes: "BP classification definitions (high-normal, Grade 1/2/3). Recommendation 1. SG-FRS-2023 risk calculator reference. QR code image."
+
+  - id: management-targets
+    title: "Management Goals, BP Targets, and Secondary Causes"
+    pages: [3]
+    content_types: [prose, figure, table]
+    notes: "Figure 1 (risk reduction summary – vector graphic). Table 1 (BP targets by condition). Secondary hypertension causes list."
+
+  - id: lifestyle-intervention
+    title: "Lifestyle Intervention and Initiation of Pharmacotherapy"
+    pages: [4]
+    content_types: [prose, flowchart, table]
+    notes: "Figure 2 – decision flowchart for pharmacotherapy initiation (vector drawings). Benefits of lifestyle intervention."
+
+  - id: pharmacotherapy-selection
+    title: "Choosing First-line Pharmacotherapy"
+    pages: [5]
+    content_types: [prose, table, decision_tree]
+    notes: "Recommendation 2 & 3. Table 2 (first-line antihypertensive class selection by comorbidity). Complex multi-condition decision logic."
+
+  - id: combination-therapy
+    title: "Dual Therapy and Combination Prescribing"
+    pages: [6]
+    content_types: [prose, table]
+    notes: "Recommendation 4. Table 3 (beta blocker prescribing). Table 4 (combinations to avoid)."
+
+  - id: treatment-intensification
+    title: "Treatment Intensification"
+    pages: [7]
+    content_types: [prose]
+    notes: "Recommendation 5. Suboptimal response considerations. Medication adherence."
+
+  - id: specialist-referral
+    title: "Specialist Referral and Follow-up"
+    pages: [8]
+    content_types: [prose]
+    notes: "Recommendation 6. Referral criteria. Follow-up intervals."
+
+  - id: home-bp-monitoring
+    title: "Home BP Monitoring"
+    pages: [9]
+    content_types: [prose, table, figure]
+    notes: "Table 5 (clinic vs non-clinic BP values). Home monitoring guidance. Device image."
+
+  - id: supplementary-medications
+    title: "Supplementary Table S1 – BP-lowering Medications"
+    pages: [10]
+    content_types: [table]
+    notes: "Dense reference table: medication classes, dosing, renal adjustment, precautions. 180 text lines."
+
+  - id: supplementary-combinations
+    title: "Supplementary Table S2 – Single-pill Combinations"
+    pages: [11]
+    content_types: [table]
+    notes: "Dense reference table: CCBs, diuretics, combination pills. 136 text lines."
+
+  - id: references-and-contributors
+    title: "References and Working Group"
+    pages: [12]
+    content_types: [prose, sidebar]
+    notes: "Reference QR code. Full working group member list. Logos."
+
+quality_flags: []
