@@ -5,8 +5,8 @@ Resolve checker findings. Fix what can be fixed mechanically.
 Escalate what needs clinical judgement.
 
 ## Input
-- output/structured/{cpg-id}/ (Structurer's output)
-- eval/{cpg-id}/ (Checker's reports)
+- output/{basename}/structured/ (Structurer's output)
+- eval/{basename}/ (Checker's reports)
 - source/{cpg}.pdf (for reference)
 
 ## Process
@@ -17,13 +17,13 @@ Escalate what needs clinical judgement.
    - ACCURACY mismatches → go back to source PDF, verify, correct the output
    - CLINICAL SAFETY flags → add <!-- REVIEW: [finding] --> tag, do NOT attempt to fix
    - BLOCKED sections → leave in structured/, do not copy to final/
-3. Copy reconciled files to output/final/{cpg-id}/
+3. Copy reconciled files to output/{basename}/final/
 4. Update YAML frontmatter: validated: true, validated_date: today
 5. Generate summary report
 
 ## Output
-- output/final/{cpg-id}/ (reconciled, validated files)
-- eval/{cpg-id}/reconciliation-summary.md
+- output/{basename}/final/ (reconciled, validated files)
+- eval/{basename}/reconciliation-summary.md
 
 Summary format:
 ## Reconciliation Summary: {cpg-name}

@@ -1,6 +1,6 @@
-# cpg-pipeline
+# cpg-pdf2md
 
-Convert clinical practice guideline PDFs into structured, validated markdown using a 5-agent Claude Code pipeline.
+Convert clinical practice guideline PDFs into structured, validated markdown using a 6-agent Claude Code pipeline. This is based on https://github.com/maximilienbouchet/cpg-pipeline .
 
 ## Before / After
 
@@ -46,8 +46,9 @@ cp ~/Downloads/my-guideline.pdf source/
 # Run the pipeline
 ./scripts/run-pipeline.sh source/my-guideline.pdf
 
-# Output lands in output/final/<cpg-id>/
-# Review flags in eval/<cpg-id>/reconciliation-summary.md
+# Output lands in output/<basename>/final/
+# Combined output in output/<basename>/combined/<basename>-combined.md
+# Review flags in eval/<basename>/reconciliation-summary.md
 
 # Validate the output
 python3 scripts/validate.py
@@ -61,7 +62,7 @@ Every output file follows [`templates/cpg-section.schema.md`](templates/cpg-sect
 
 ```yaml
 ---
-cpg_id: "acg-hypertension"
+cpg_id: "acg-hypertension_15dec2023"
 section_id: "lifestyle-intervention"
 section_title: "Lifestyle Intervention and Initiation of Pharmacotherapy"
 source_pages: [4]
@@ -105,11 +106,11 @@ Full format rules: [`templates/decision-logic.schema.md`](templates/decision-log
 source/*.pdf
     │
     ▼
-┌─────────┐   ┌───────────┐   ┌────────────┐   ┌─────────┐   ┌────────────┐
-│ 1. SCAN │──▶│ 2. EXTRACT│──▶│ 3.STRUCTURE│──▶│ 4. CHECK│──▶│5. RECONCILE│
-└─────────┘   └───────────┘   └────────────┘   └─────────┘   └────────────┘
- manifest      raw text +       schema-         validation    fixes + final
- (YAML)        visual desc.     compliant md    reports       validated output
+┌─────────┐   ┌───────────┐   ┌────────────┐   ┌─────────┐   ┌────────────┐   ┌──────────┐
+│ 1. SCAN │──▶│ 2. EXTRACT│──▶│ 3.STRUCTURE│──▶│ 4. CHECK│──▶│5. RECONCILE│──▶│ 6.COMBINE│
+└─────────┘   └───────────┘   └────────────┘   └─────────┘   └────────────┘   └──────────┘
+ manifest      raw text +       schema-         validation    fixes + final     single merged
+ (YAML)        visual desc.     compliant md    reports       validated output  markdown doc
                                                 │
                                           eval/*.md
 ```
@@ -119,6 +120,7 @@ source/*.pdf
 3. **STRUCTURE** — converts raw extraction into schema-compliant markdown: frontmatter, Mermaid trees, IEET blocks, cross-references.
 4. **CHECK** — fresh context, adversarial: compares structured output against the source PDF for completeness, accuracy, schema compliance, and clinical safety.
 5. **RECONCILE** — resolves checker findings: fixes schema/accuracy issues, fills completeness gaps, adds `<!-- REVIEW -->` tags for anything requiring clinical judgement.
+6. **COMBINE** — merges all reconciled section files into one hierarchically-structured markdown document with a table of contents.
 
 Each agent runs in a separate Claude session with no shared context. The checker has never seen the extraction or structuring work. Agent definitions: [`.claude/skills/`](.claude/skills/).
 
@@ -126,7 +128,7 @@ Each agent runs in a separate Claude session with no shared context. The checker
 
 - [Claude Code](https://docs.anthropic.com/en/docs/claude-code) (the `claude` CLI must be on your PATH)
 - Python 3 with `pyyaml` (`pip3 install pyyaml`)
-- A Claude plan with sufficient usage for ~5 sessions per guideline
+- A Claude plan with sufficient usage for ~6 sessions per guideline
 
 The pipeline shell script calls `claude -p` with `--permission-mode auto` for each agent. Review [`.claude/skills/`](.claude/skills/) to understand what tools each agent is granted.
 

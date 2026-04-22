@@ -62,7 +62,7 @@ def check_review_flags(filepath):
             warnings.append(f'{filepath}: open review flag - {flag[:80]}')
 
 # Run on all final output
-for md_file in sorted(glob.glob('output/final/**/*.md', recursive=True)):
+for md_file in sorted(glob.glob('output/*/final/*.md', recursive=True)):
     if os.path.basename(md_file) == '_index.md':
         continue  # index files have different schema
     check_frontmatter(md_file)
@@ -71,7 +71,7 @@ for md_file in sorted(glob.glob('output/final/**/*.md', recursive=True)):
     check_review_flags(md_file)
 
 # Also run on structured (pre-reconciliation)
-for md_file in sorted(glob.glob('output/structured/**/*.md', recursive=True)):
+for md_file in sorted(glob.glob('output/*/structured/*.md', recursive=True)):
     if os.path.basename(md_file) == '_index.md':
         continue
     check_no_ascii_art(md_file)

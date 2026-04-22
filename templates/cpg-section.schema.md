@@ -5,7 +5,7 @@ Every output markdown file MUST follow this structure.
 ## Required YAML frontmatter
 
 ---
-cpg_id: string          # e.g., "ACE-DM-2024", "NICE-NG28-2022", "AHA-HF-2022"
+cpg_id: string          # basename of the input PDF without .pdf extension
 cpg_name: string        # Full guideline name
 publisher: string       # e.g., "MOH Singapore", "NICE", "AHA/ACC"
 country: string         # ISO 3166-1 alpha-3

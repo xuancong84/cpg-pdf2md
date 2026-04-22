@@ -7,7 +7,7 @@ Fresh eyes. Adversarial mindset.
 
 ## Input
 - source/{cpg}.pdf (the original)
-- output/structured/{cpg-id}/ (Structurer's output)
+- output/{basename}/structured/ (Structurer's output)
 - templates/ (the schemas)
 
 ## Process
@@ -43,7 +43,7 @@ For each structured section file, check:
 - Contraindications present where source states them
 
 ## Output
-Per section: eval/{cpg-id}/{section-id}-check.md
+Per section: eval/{basename}/{section-id}-check.md
 
 Format:
 ## {section-id} Validation Report

@@ -6,8 +6,8 @@ You are a formatter, not a clinician. Do not add, remove,
 or reinterpret clinical content.
 
 ## Input
-- output/raw/{cpg-id}/{section-id}.raw.md (from Extractor)
-- output/raw/{cpg-id}/00-scan-manifest.yaml (for metadata)
+- output/{basename}/raw/{section-id}.raw.md (from Extractor)
+- output/{basename}/raw/00-scan-manifest.yaml (for metadata)
 - templates/cpg-section.schema.md (output contract)
 - templates/decision-logic.schema.md (logic format rules)
 
@@ -25,8 +25,8 @@ For each raw section file:
 8. Preserve ALL [UNCLEAR] and [REVIEW] flags from raw input
 
 ## Output
-One file per section: output/structured/{cpg-id}/{section-id}.md
-Plus: output/structured/{cpg-id}/_index.md (guideline overview with links to all sections)
+One file per section: output/{basename}/structured/{section-id}.md
+Plus: output/{basename}/structured/_index.md (guideline overview with links to all sections)
 
 ## Success criteria
 - Valid YAML frontmatter on every file

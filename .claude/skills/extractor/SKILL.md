@@ -6,7 +6,7 @@ not what it means. No formatting decisions. No interpretation.
 
 ## Input
 - The source PDF
-- output/raw/{cpg-id}/00-scan-manifest.yaml (from Scanner)
+- output/{basename}/raw/00-scan-manifest.yaml (from Scanner)
 
 ## Process
 For each section in the manifest:
@@ -21,7 +21,7 @@ For each section in the manifest:
 5. Preserve the source's section/subsection hierarchy
 
 ## Output
-One file per section: output/raw/{cpg-id}/{section-id}.raw.md
+One file per section: output/{basename}/raw/{section-id}.raw.md
 
 Format:
 # {section-title} (Pages {start}-{end})

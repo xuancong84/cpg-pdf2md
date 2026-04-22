@@ -5,6 +5,8 @@ Inventory a CPG PDF. You do NOT extract content. You map the structure.
 
 ## Input
 A CPG PDF file in source/
+The exact output basename is provided in the prompt as **Output basename: {basename}**.
+You MUST use this exact string for all output paths — do NOT derive a name from the document title or content.
 
 ## Process
 1. Read every page using vision
@@ -13,9 +15,9 @@ A CPG PDF file in source/
 4. Note any pages that are low quality, scanned, or partially obscured
 
 ## Output
-Write to output/raw/{cpg-id}/00-scan-manifest.yaml:
+Write to output/{basename}/raw/00-scan-manifest.yaml:
 
-cpg_id: [derived from title page]
+cpg_id: {basename}   # MUST be exactly the basename value given in the prompt
 cpg_name: [full title]
 publisher: [organisation]
 country: [ISO code]
