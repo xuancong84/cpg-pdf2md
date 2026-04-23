@@ -48,7 +48,7 @@ cp ~/Downloads/my-guideline.pdf source/
 
 # Output lands in output/<basename>/final/
 # Combined output in output/<basename>/combined/<basename>-combined.md
-# Review flags in eval/<basename>/reconciliation-summary.md
+# Review flags in eval/<basename>/rectification-summary.md
 
 # Validate the output
 python3 scripts/validate.py
@@ -107,7 +107,7 @@ source/*.pdf
     │
     ▼
 ┌─────────┐   ┌───────────┐   ┌────────────┐   ┌─────────┐   ┌────────────┐   ┌──────────┐
-│ 1. SCAN │──▶│ 2. EXTRACT│──▶│ 3.STRUCTURE│──▶│ 4. CHECK│──▶│5. RECONCILE│──▶│ 6.COMBINE│
+│ 1. SCAN │──▶│ 2. EXTRACT│──▶│ 3.STRUCTURE│──▶│ 4. CHECK│──▶│ 5. RECTIFY │──▶│ 6.COMBINE│
 └─────────┘   └───────────┘   └────────────┘   └─────────┘   └────────────┘   └──────────┘
  manifest      raw text +       schema-         validation    fixes + final     single merged
  (YAML)        visual desc.     compliant md    reports       validated output  markdown doc
@@ -119,8 +119,8 @@ source/*.pdf
 2. **EXTRACT** — pulls raw text and describes every visual element (flowcharts, tables, figures) verbatim. No interpretation.
 3. **STRUCTURE** — converts raw extraction into schema-compliant markdown: frontmatter, Mermaid trees, IEET blocks, cross-references.
 4. **CHECK** — fresh context, adversarial: compares structured output against the source PDF for completeness, accuracy, schema compliance, and clinical safety.
-5. **RECONCILE** — resolves checker findings: fixes schema/accuracy issues, fills completeness gaps, adds `<!-- REVIEW -->` tags for anything requiring clinical judgement.
-6. **COMBINE** — merges all reconciled section files into one hierarchically-structured markdown document with a table of contents.
+5. **RECTIFY** — resolves checker findings: fixes schema/accuracy issues, fills completeness gaps, adds `<!-- REVIEW -->` tags for anything requiring clinical judgement.
+6. **COMBINE** — merges all rectified section files into one hierarchically-structured markdown document with a table of contents.
 
 Each agent runs in a separate Claude session with no shared context. The checker has never seen the extraction or structuring work. Agent definitions: [`.claude/skills/`](.claude/skills/).
 

@@ -53,16 +53,16 @@ echo "▸ Phase 4/6: CHECK"
 claude -p "You are Agent 4 (Checker). Read .claude/skills/checker/SKILL.md for your instructions. Validate output/$BASENAME/structured/ against $PDF. Output basename: $BASENAME" \
   --allowedTools "Read,Write,Bash" --permission-mode auto
 
-# Phase 5: RECONCILE
+# Phase 5: RECTIFY
 echo ""
-echo "▸ Phase 5/6: RECONCILE"
-claude -p "You are Agent 5 (Reconciler). Read .claude/skills/reconciler/SKILL.md for your instructions. Reconcile output/$BASENAME/structured/ using reports in eval/$BASENAME/. Output basename: $BASENAME" \
+echo "▸ Phase 5/6: RECTIFY"
+claude -p "You are Agent 5 (Rectifier). Read .claude/skills/rectifier/SKILL.md for your instructions. Rectify output/$BASENAME/structured/ using reports in eval/$BASENAME/. Output basename: $BASENAME" \
   --allowedTools "Read,Write,Edit,Bash" --permission-mode auto
 
 # Phase 6: COMBINE
 echo ""
 echo "▸ Phase 6/6: COMBINE"
-claude -p "You are Agent 6 (Combiner). Read .claude/skills/combiner/SKILL.md for your instructions. Combine all reconciled files in output/$BASENAME/final/ into a single markdown document, using output/$BASENAME/raw/00-scan-manifest.yaml for section ordering and hierarchy. Output basename: $BASENAME" \
+claude -p "You are Agent 6 (Combiner). Read .claude/skills/combiner/SKILL.md for your instructions. Combine all rectified files in output/$BASENAME/final/ into a single markdown document, using output/$BASENAME/raw/00-scan-manifest.yaml for section ordering and hierarchy. Output basename: $BASENAME" \
   --allowedTools "Read,Write,Bash" --permission-mode auto
 
 
@@ -71,5 +71,5 @@ echo "╔═══════════════════════�
 echo "║  Pipeline complete for $BASENAME"
 echo "║  Final output:    output/$BASENAME/final/"
 echo "║  Combined output: output/$BASENAME/combined/$BASENAME.md"
-echo "║  Review items:    eval/$BASENAME/reconciliation-summary.md"
+echo "║  Review items:    eval/$BASENAME/rectification-summary.md"
 echo "╚══════════════════════════════════════╝"

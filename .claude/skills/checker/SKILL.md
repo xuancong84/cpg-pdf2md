@@ -72,4 +72,4 @@ Format:
 
 ## Escalation
 If confidence is LOW on ANY clinical content: mark file as BLOCKED.
-Do not let it proceed to reconciliation.
+Do not let it proceed to rectification.
